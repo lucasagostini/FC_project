@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Questionnaire</title>
+</head>
+<body>
+  <h1>Questionnaire</h1>
+  <form action="{% url 'questionnaire' %}" method="post">
+    <div id="question-1">
+      <p>Question 1:</p>
+      <input type="text" id="answer-1">
+      <button type="button" onclick="showNextQuestion()">Next</button>
+    </div>
+    <div id="question-2" style="display:none;">
+      <p>Question 2:</p>
+      <input type="text" id="answer-2">
+      <button type="button" onclick="showNextQuestion()">Next</button>
+    </div>
+    <div id="question-3" style="display:none;">
+        <p>Question 3:</p>
+        <input type="text" id="answer-3">
+        <button type="button" onclick="showNextQuestion()">Next</button>
+      </div>
+      <div id="question-4" style="display:none;">
+        <p>Question 4:</p>
+        <input type="text" id="answer-4">
+        <button type="button" onclick="showNextQuestion()">Next</button>
+      </div>
+    <div id="question-5" style="display:none;">
+      <p>Question 5:</p>
+      <input type="text" id="answer-5">
+      <button type="button" onclick="submitAnswers()">Submit</button>
+    </div>
+  </form>
+  <div id="thank-you" style="display:none;">
+    <p>Thank you for completing the questionnaire!</p>
+  </div>
+  <script>
+    var currentQuestion = 1;
+    function showNextQuestion() {
+      document.getElementById("question-" + currentQuestion).style.display = "none";
+      currentQuestion++;
+      document.getElementById("question-" + currentQuestion).style.display = "block";
+    }
+    function submitAnswers() {
+      // Collect answers and send to server
+      document.getElementById("question-5").style.display = "none";
+      document.getElementById("thank-you").style.display = "block";
+    }
+  </script>
+</body>
+</html>
